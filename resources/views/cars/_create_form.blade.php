@@ -12,11 +12,13 @@
                                             type="text"
                                             name="model"
                                             id="model"
-                                            class="form-control is-invalid"
+                                            class="form-control @error('model') is-invalid @enderror"
                                         />
+                                        @error('model')
                                         <div class="invalid-feedback">
-                                            Please enter a model.
+                                            {{ $error_message }}
                                         </div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -33,11 +35,13 @@
                                             min=0
                                             name="year"
                                             id="year"
-                                            class="form-control is-invalid"
+                                            class="form-control @error('year') is-invalid @enderror"
                                         />
+                                        @error('year')
                                         <div class="invalid-feedback">
-                                            Please enter a car year.
+                                            {{ $error_message }}
                                         </div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -52,11 +56,13 @@
                                             type="email"
                                             name="salesperson_email"
                                             id="salesperson_email"
-                                            class="form-control is-invalid"
+                                            class="form-control @error('salesperson_email') is-invalid @enderror"
                                         />
+                                        @error('salesperson_email')
                                         <div class="invalid-feedback">
-                                            Please enter salesperson email
+                                            {{ $error_message }}
                                         </div>
+                                        @enderror
                                     </div>
                                 </div>
 
@@ -70,15 +76,17 @@
                                         <select
                                             name="manufacturer_id"
                                             id="manufacturer_id"
-                                            class="form-control is-invalid"
+                                            class="form-control @error('manufacturer_id') is-invalid @enderror"
                                         >
                                             @foreach($manufacturers as $id => $name)
                                               <option value="{{ $id }}">{{ $name }}</option>
                                             @endforeach
                                         </select>
+                                        @error('manufacturer_id')
                                         <div class="invalid-feedback">
-                                            Please choose a manufacturer
+                                            {{ $error_message }}
                                         </div>
+                                        @enderror
                                     </div>
                                 </div>
                                 <hr />
@@ -93,8 +101,8 @@
                                         <a
                                             href="{{ route('cars.index') }}"
                                             class="btn btn-outline-secondary"
-                                            >Cancel</a
-                                        >
+                                            >Cancel
+                                        </a>
                                     </div>
                                 </div>
                             </div>
