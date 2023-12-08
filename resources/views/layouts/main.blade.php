@@ -27,12 +27,14 @@
         <!-- /.navbar-header -->
         <div class="collapse navbar-collapse" id="navbar-toggler">
           <ul class="navbar-nav">
-            <li class="nav-item"><a href="#" class="nav-link">Cars</a></li>
-            <li class="nav-item active"><a href="#" class="nav-link">Manufacturers</a></li>
+            <li class="nav-item"><a href="{{ route('cars.index') }}" class="nav-link">Cars</a></li>
+            <li class="nav-item active"><a href="{{ route('manufacturers.index') }}" class="nav-link">Manufacturers</a></li>
           </ul>
         </div>
       </div>
     </nav>
+
+    @yield('page')
 
     <script src="{{  asset('js/jquery.min.js') }}"></script>
     <script src="{{  asset('js/popper.min.js') }}"></script>
