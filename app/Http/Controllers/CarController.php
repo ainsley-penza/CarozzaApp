@@ -24,6 +24,15 @@ class CarController extends Controller
         return view('cars.details', compact('car'));
     }
 
+    public function save(Request $request){
+        $request->validate([
+            'model' => 'required',
+            'year' => 'required',
+            'salesperson_email' => 'required|email',
+            'manufacturer_id' => 'required|exist:manufacturers,id'
+        ]);
+    }
+
     public function create(){
         $manufacturers = Manufacturer::all()->pluck('name', 'id')->prepend('All Manufacturers', '');
         return view('cars.create', compact('manufacturers'));
