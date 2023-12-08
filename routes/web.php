@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\ManufacturerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +19,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/cars', function() {
-    return view('cars.index');
-})->name('cars.index');
+Route::get('/cars', [CarController::class, 'index'])->name('cars.index');
 
-Route::get('/manufacturers', function() {
-    return view('manufacturers.index');
-})->name('manufacturers.index');
+Route::get('/cars/{id}', [CarController::class, 'details'])->name('cars.details');
+
+Route::get('/manufacturers', [ManufacturerController::class, 'index'])->name('manufacturers.index');
