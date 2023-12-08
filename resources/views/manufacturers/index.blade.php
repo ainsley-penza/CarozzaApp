@@ -21,12 +21,16 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Alfred</td>
-                      <td>Kuhlman</td>
-                      <td>alfred@test.com</td>
-                    </tr>
+                    @if($manufacturers->count())
+                        @foreach($manufacturers as $man => $manufacturer)
+                            <tr>
+                                <th scope="row">{{ $man + 1 }}</th>
+                                <td>{{ $manufacturer->name }}</td>
+                                <td>{{ $manufacturer->address }}</td>
+                                <td>{{ $manufacturer->phone }}</td>
+                            </tr>
+                        @endforeach
+                    @endif
                   </tbody>
                 </table> 
 
