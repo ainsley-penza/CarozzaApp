@@ -9,8 +9,13 @@ use App\Models\Manufacturer;
 class CarController extends Controller
 {
     public function index(){
-        $cars = Car::all();
-        $manufacturers = Manufacturer::all()->pluck('name', 'id');
+        $manufacturers = Manufacturer::all()->pluck('name', 'id')->prepend('All Manufacturers', '');
+
+        if (request('manufacturer_id') == null) {
+            $cars = Car::all();
+        } else {
+            $cars = Car::where('manufacturer_id', request('manufacturer_id'))->get();
+        }
         return view('cars.index', compact('cars', 'manufacturers'));
     }
     
