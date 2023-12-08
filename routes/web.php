@@ -31,4 +31,6 @@ Route::put('/cars/{id}', [CarController::class, 'saveedit'])->name('cars.saveedi
 
 Route::post('/cars', [CarController::class, 'savenew'])->name('cars.savenew');
 
+Route::delete('/cars/{id}', [CarController::class], 'remove')->name('cars.remove');
+
 Route::get('/manufacturers', [ManufacturerController::class, 'index'])->name('manufacturers.index');
