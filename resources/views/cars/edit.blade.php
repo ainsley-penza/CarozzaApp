@@ -10,7 +10,8 @@
                         <strong>Edit Car</strong>
                     </div>
 
-                    <form action="{{ route('cars.save') }}" method="POST">
+                    <form action="{{ route('cars.saveedit', $car->id) }}" method="POST">
+                      @method('PUT')
                       @csrf
                       @include('cars._form')
                     </form>

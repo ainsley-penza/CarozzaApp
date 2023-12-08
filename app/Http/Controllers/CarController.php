@@ -36,6 +36,20 @@ class CarController extends Controller
         return redirect()->route('cars.index')->with('successmessage', 'New car has been added.');
     }
 
+    public function saveedit($id, Request $request){
+        $request->validate([
+            'model' => 'required',
+            'year' => 'required',
+            'salesperson_email' => 'required|email',
+            'manufacturer_id' => 'required|exists:manufacturers,id'
+        ]);
+
+        $car = Car::find($id);
+        $car->update($request->all());
+
+        return redirect()->route('cars.index')->with('success_message', 'Car has been edited.');
+    }
+
     public function create(){
         $car = new Car();
         $manufacturers = Manufacturer::all()->pluck('name', 'id')->prepend('All Manufacturers', '');
@@ -44,8 +58,8 @@ class CarController extends Controller
 
     public function edit($id){
         $car = Car::find($id);
-
         $manufacturers = Manufacturer::all()->pluck('name', 'id')->prepend('All Manufacturers', '');
+        
         return view('cars.edit', compact('manufacturers', 'car'));
     }
 }
