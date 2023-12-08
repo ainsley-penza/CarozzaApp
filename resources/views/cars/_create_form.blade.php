@@ -13,6 +13,7 @@
                                             name="model"
                                             id="model"
                                             class="form-control @error('model') is-invalid @enderror"
+                                            value="{{ old('model') }}"
                                         />
                                         @error('model')
                                         <div class="invalid-feedback">
@@ -36,6 +37,7 @@
                                             name="year"
                                             id="year"
                                             class="form-control @error('year') is-invalid @enderror"
+                                            value="{{ old('year') }}"
                                         />
                                         @error('year')
                                         <div class="invalid-feedback">
@@ -57,6 +59,7 @@
                                             name="salesperson_email"
                                             id="salesperson_email"
                                             class="form-control @error('salesperson_email') is-invalid @enderror"
+                                            value="{{ old('salesperson_email') }}"
                                         />
                                         @error('salesperson_email')
                                         <div class="invalid-feedback">
@@ -79,7 +82,7 @@
                                             class="form-control @error('manufacturer_id') is-invalid @enderror"
                                         >
                                             @foreach($manufacturers as $id => $name)
-                                              <option value="{{ $id }}">{{ $name }}</option>
+                                              <option {{ $id == old('manufacturer_id') ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
                                             @endforeach
                                         </select>
                                         @error('manufacturer_id')
