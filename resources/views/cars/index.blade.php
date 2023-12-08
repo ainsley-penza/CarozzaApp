@@ -20,74 +20,30 @@
                   <thead>
                     <tr>
                       <th scope="col">#</th>
-                      <th scope="col">First Name</th>
-                      <th scope="col">Last Name</th>
-                      <th scope="col">Email</th>
-                      <th scope="col">Company</th>
+                      <th scope="col">Model</th>
+                      <th scope="col">Year</th>
+                      <th scope="col">Salesperson Email</th>
+                      <th scope="col">Manufacturer</th>
                       <th scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>Alfred</td>
-                      <td>Kuhlman</td>
-                      <td>alfred@test.com</td>
-                      <td>Company one</td>
-                      <td width="150">
-                        <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                        <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                        <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Frederick</td>
-                      <td>Jerde</td>
-                      <td>frederick@test.com</td>
-                      <td>Company one</td>
-                      <td>
-                        <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                        <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                        <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td>Joannie</td>
-                      <td>McLaughlin</td>
-                      <td>joannie@test.com</td>
-                      <td>Company Two</td>
-                      <td>
-                        <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                        <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                        <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">4</th>
-                      <td>Odie</td>
-                      <td>Koss</td>
-                      <td>odie@test.com</td>
-                      <td>Company Two</td>
-                      <td>
-                        <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                        <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                        <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">5</th>
-                      <td>Edna</td>
-                      <td>Ondricka</td>
-                      <td>edna@test.com</td>
-                      <td>Company Three</td>
-                      <td>
-                        <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                        <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                        <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
-                      </td>
-                    </tr>
+                    @if($cars->count())
+                      @foreach($cars as $c => $car)
+                      <tr>
+                        <th scope="row">{{ $c + 1 }}</th>
+                        <td>{{ $car->model }}</td>
+                        <td>{{ $car->year }}</td>
+                        <td>{{ $car->salesperson_email }}</td>
+                        <td>{{ $car->manufacturer->name }}</td>
+                        <td width="150">
+                          <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                          <a href="form.html" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                          <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
+                        </td>
+                      </tr>
+                      @endforeach
+                    @endif
                   </tbody>
                 </table> 
 
