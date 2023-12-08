@@ -29,7 +29,7 @@ class CarController extends Controller
             'model' => 'required',
             'year' => 'required',
             'salesperson_email' => 'required|email',
-            'manufacturer_id' => 'required|exist:manufacturers,id'
+            'manufacturer_id' => 'required|exists:manufacturers,id'
         ]);
     }
 
