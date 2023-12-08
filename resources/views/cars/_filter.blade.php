@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col">
                     <div class="input-group mb-3">
-                        <select class="custom-select">
+                        <select id="filter_manufacturer" name="manufacturer_id" class="custom-select">
                             <option value="" selected>All Manufacturers</option>
                             @foreach($manufacturers as $id => $name)
                                 <option value="{{ $id }}">{{ $name }}</option>
