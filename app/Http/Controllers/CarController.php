@@ -62,4 +62,10 @@ class CarController extends Controller
         
         return view('cars.edit', compact('manufacturers', 'car'));
     }
+
+    public function remove($id){
+        $car = Car::find($id);
+        $car->delete();
+        return redirect()->route('cars.index')->with('success_message', 'Car has been deleted.');
+    }
 }

@@ -42,19 +42,13 @@
                         <td width="150">
                           <a href="{{ route('cars.details', $car->id ) }}" class="btn btn-sm btn-circle btn-outline-info" title="Details"><i class="fa fa-eye"></i></a>
                           <a href="{{ route('cars.edit', $car->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                          <a href="{{ route('cars.remove', $car->id) }}" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure you want to delete this car?')"><i class="fa fa-times"></i></a>
+                          <a href="{{ route('cars.remove', $car->id) }}" class="btn btn-sm btn-circle btn-outline-danger btn-delete" title="Delete"><i class="fa fa-times"></i></a>
                         </td>
                       </tr>
                       @endforeach
-                      <form id="form-remove" method="POST" style="display: none">
-                        @csrf
-                        @method('DELETE')
-                      </form>
                     @endif
                   </tbody>
                 </table> 
-
-
               </div>
             </div>
           </div>
