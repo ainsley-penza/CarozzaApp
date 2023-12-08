@@ -31,6 +31,9 @@ class CarController extends Controller
             'salesperson_email' => 'required|email',
             'manufacturer_id' => 'required|exists:manufacturers,id'
         ]);
+
+        Car::create($request->all());
+        return redirect()->route('cars.index')->with('successmessage', 'New car has been added.');
     }
 
     public function create(){
