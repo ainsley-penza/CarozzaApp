@@ -46,6 +46,10 @@
                         </td>
                       </tr>
                       @endforeach
+                      <form id="form-remove" method="POST" style="display: none">
+                        @csrf
+                        @method('DELETE')
+                      </form>
                     @endif
                   </tbody>
                 </table> 
