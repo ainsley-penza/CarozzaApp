@@ -83,18 +83,9 @@
                                             id="manufacturer_id"
                                             class="form-control is-invalid"
                                         >
-                                            <option value="">
-                                                Choose Manufacturer
-                                            </option>
-                                            <option value="1">
-                                                Company One
-                                            </option>
-                                            <option value="2">
-                                                Company Two
-                                            </option>
-                                            <option value="3">
-                                                Company Three
-                                            </option>
+                                            @foreach($manufacturers as $id => $name)
+                                              <option value="{{ $id }}">{{ $name }}</option>
+                                            @endforeach
                                         </select>
                                         <div class="invalid-feedback">
                                             Please choose a manufacturer
