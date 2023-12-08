@@ -17,7 +17,7 @@
                                         />
                                         @error('model')
                                         <div class="invalid-feedback">
-                                            {{ $error_message }}
+                                            A car model should be inputted.
                                         </div>
                                         @enderror
                                     </div>
@@ -41,7 +41,7 @@
                                         />
                                         @error('year')
                                         <div class="invalid-feedback">
-                                            {{ $error_message }}
+                                            A car year must be inputted.
                                         </div>
                                         @enderror
                                     </div>
@@ -63,7 +63,7 @@
                                         />
                                         @error('salesperson_email')
                                         <div class="invalid-feedback">
-                                            {{ $error_message }}
+                                            A salesperson email must be inputted with the correct format.
                                         </div>
                                         @enderror
                                     </div>
@@ -87,7 +87,7 @@
                                         </select>
                                         @error('manufacturer_id')
                                         <div class="invalid-feedback">
-                                            {{ $error_message }}
+                                            A manufacturer should be selected.
                                         </div>
                                         @enderror
                                     </div>
