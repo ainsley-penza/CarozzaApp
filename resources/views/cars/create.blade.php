@@ -11,6 +11,7 @@
                     </div>
 
                     <form action="{{ route('cars.save') }}" method="POST">
+                      @csrf
                       @include('cars._create_form')
                     </form>
             </div>
