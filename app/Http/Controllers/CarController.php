@@ -8,7 +8,8 @@ use App\Models\Car;
 class CarController extends Controller
 {
     public function index(){
-        return view('cars.index');
+        $cars = Car::all();
+        return view('cars.index', compact('cars'));
     }
     
     public function details($id){
