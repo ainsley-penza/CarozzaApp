@@ -23,4 +23,9 @@ class CarController extends Controller
         $car = Car::find($id);
         return view('cars.details', compact('car'));
     }
+
+    public function create(){
+        $manufacturers = Manufacturer::all()->pluck('name', 'id')->prepend('All Manufacturers', '');
+        return view('cars.create', compact('manufacturers'));
+    }
 }
