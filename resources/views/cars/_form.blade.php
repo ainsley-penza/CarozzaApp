@@ -13,7 +13,7 @@
                                             name="model"
                                             id="model"
                                             class="form-control @error('model') is-invalid @enderror"
-                                            value="{{ old('model') }}"
+                                            value="{{ old('model', $car->model) }}"
                                         />
                                         @error('model')
                                         <div class="invalid-feedback">
@@ -37,7 +37,7 @@
                                             name="year"
                                             id="year"
                                             class="form-control @error('year') is-invalid @enderror"
-                                            value="{{ old('year') }}"
+                                            value="{{ old('year', $car->year) }}"
                                         />
                                         @error('year')
                                         <div class="invalid-feedback">
@@ -59,7 +59,7 @@
                                             name="salesperson_email"
                                             id="salesperson_email"
                                             class="form-control @error('salesperson_email') is-invalid @enderror"
-                                            value="{{ old('salesperson_email') }}"
+                                            value="{{ old('salesperson_email', $car->salesperson_email) }}"
                                         />
                                         @error('salesperson_email')
                                         <div class="invalid-feedback">
@@ -82,7 +82,7 @@
                                             class="form-control @error('manufacturer_id') is-invalid @enderror"
                                         >
                                             @foreach($manufacturers as $id => $name)
-                                              <option {{ $id == old('manufacturer_id') ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
+                                              <option {{ $id == old('manufacturer_id', $car->manufacturer_id) ? 'selected' : '' }} value="{{ $id }}">{{ $name }}</option>
                                             @endforeach
                                         </select>
                                         @error('manufacturer_id')

@@ -27,6 +27,6 @@ Route::get('/cars/{id}', [CarController::class, 'details'])->where('id', '[0-9]+
 
 Route::get('/cars/{id}/edit', [CarController::class, 'edit'])->where('id', '[0-9]+')->name('cars.edit');
 
-Route::post('/cars', [CarController::class, 'savenew'])->name('cars.savenew');
+Route::post('/cars', [CarController::class, 'save'])->name('cars.save');
 
 Route::get('/manufacturers', [ManufacturerController::class, 'index'])->name('manufacturers.index');
